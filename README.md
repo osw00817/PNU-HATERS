@@ -123,6 +123,34 @@
 
 <br/>
 
-해당 README는 다음 레포지토리를 참고(거의 복붙)해서 제작하였습니다.
+<br />
 
+## ✅How to Code Review   
+#### 1. Commit History로 리뷰하는 방법 
+다른 사람이 커밋한 데다가 댓글 다는 방식 =>
+[예시](https://github.com/ohgyun/using-github-for-code-reviews/commit/8a85b15805237214aea83a1131f0548b3b69a2d8)    
+
+#### 2. Pull Request로 리뷰하는 방법   
+- [fork해서 Pull Request 보내는 법](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)  
+- [fork된 레포지토리 최신상태 유지하는 법](https://jybaek.tistory.com/775)   
+-------
+
+1) 새로운 branch를 하나 만듭니다.  
+2) 새로 만든 branch에 코드를 push합니다.  
+3) push 완료 후 GitHub branch 페이지에 들어오면 Pull Request(PR)할건지 버튼이 생깁니다. 클릭!
+4) <b>스터디 시간 전에 merge</b>하면 됩니다. (merge 후 branch는 삭제해도 됩니다.)
+5) 코드 리뷰는 스터디 시간에 진행합니다.
+   
+#### 일단 이렇게 정리해 봤습니다,, 보완할 부분 있으면 자유롭게 수정해주세요! :smile:
+
+<br />
+
+해당 README는 다음 레포지토리를 참고해서 제작하였습니다.
+
+- [알고리즘 및 코딩 테스트 문제 풀이 챌린지 100](https://github.com/ellynhan/challenge100-codingtest-study)
+- [알고리즘 및 코딩 테스트 문제 풀이](https://github.com/Seongho0503/Algo_Study)
+- [코딩테스트 기출 문제 풀이 및 업로드 Repository](https://github.com/CodeTest-StudyGroup/Code-Test-Study)
+- [Algorithm Study](https://github.com/b1urrrr/Algorithm-Study)
 - [Algorithm-Study](https://github.com/CodeSquad-2023-BE-Study/Algorithm-Study/tree/main)
+
+commit 컨벤션은 [gitmoji](https://gitmoji.dev/)와 [AngularJS Git Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)을 참고했습니다.
