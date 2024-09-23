@@ -3,6 +3,7 @@
 </a>
 
 # 🖥 PNU HATERS
+### 열심히 공부해서 PNU를 벗어나보자
 
 <table>
   <tr>
@@ -15,7 +16,7 @@
   </tr>
   <tr>
     <td>정기 스터디 시간</td>
-    <td>알요일 16:00~18:00 </td>
+    <td>일요일 16:00~18:00 </td>
   </tr>
   <tr>
     <td>플랫폼</td>
@@ -23,9 +24,7 @@
   </tr>
   <tr>
     <td>언어</td>
-    <td><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"> 
-        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-    </td>
+    <td>C언어</td>
   </tr>
 </table>
 
@@ -73,10 +72,10 @@
 
 ## 📁 Repository 폴더 구조
 ```
-구상중
+{Github ID}/{week n}/{코드.c}
 ```
 
-- 💡 예시: `구상중`
+- 💡 예시: `osw00817/week01/BOJ_1374_상근이사랑해.c`
 
 <br/>
 
@@ -87,7 +86,7 @@
 ```
 
 - 플랫폼에 따라 없는 내용은 생략 가능
-- 💡 예시: `✨feat: PGS_다트_게임 알고리즘 구현`
+- 💡 예시: `✨feat: PGS_1234_상근이사랑해 알고리즘 구현`
 
 ### 플랫폼
 
