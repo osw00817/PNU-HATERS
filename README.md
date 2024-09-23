@@ -64,7 +64,10 @@
 <br/>
 
 ## 📜 추천 문제
-1. 수학문제<a href="www.acmicpc.net"></a>
+1. <a href="https://www.acmicpc.net/workbook/view/8997">수학 문제집</a>
+2. <a href="https://www.acmicpc.net/workbook/view/8999">자료구조 문제집</a>
+3. <a href="https://www.acmicpc.net/workbook/view/9000">재귀함수와 정렬 문제집</a>
+4.<a href="https://www.acmicpc.net/workbook/view/9001">다이나믹 프로그래밍 문제집</a>
 
 ## 🔍 참여 방법
 1. 이 저장소를 `fork` 한다.
