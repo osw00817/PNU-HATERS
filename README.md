@@ -63,11 +63,6 @@
 
 <br/>
 
-## 📄 문제집
-1. <a href="https://www.acmicpc.net/workbook/view/8999">수학문제집</a>
-
-<br/>
-
 ## 🔍 참여 방법
 1. 이 저장소를 `fork` 한다.
 2. 생성된 저장소에 `Github ID`로 폴더를 생성한다.
