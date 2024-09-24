@@ -63,6 +63,11 @@
 
 <br/>
 
+## 이주의 문제
+| 주차 | 날짜 | 문제 유형 | 문제번호| 문제 | 난이도 | 비고 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| week3 | 23.09.11 ~ 23.09.17 | 이분 탐색 <br> 문자열 <br> 시뮬레이션 <br> 그래프 이론 <br>| [7795](https://www.acmicpc.net/problem/7795) <br> [9935](https://www.acmicpc.net/problem/9935) <br> [13460](https://www.acmicpc.net/problem/13460) <br> [3197](https://www.acmicpc.net/problem/3197) <br> | <p align=left> [먹을 것인가 먹힐 것인가](https://www.acmicpc.net/problem/7795) <br> [문자열 폭발](https://www.acmicpc.net/problem/9935) <br> [구슬 탈출 2](https://www.acmicpc.net/problem/13460) <br> [백조의 호수](https://www.acmicpc.net/problem/3197) <br> | <img height="20px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/> <br> <img height="20px" width="25px" src="https://static.solved.ac/tier_small/12.svg"/> <br> <img height="20px" width="25px" src="https://static.solved.ac/tier_small/15.svg"/> <br> <img height="20px" width="25px" src="https://static.solved.ac/tier_small/16.svg"/> <br> | <br><br><br><br> |
+
 ## 🔍 참여 방법
 1. 이 저장소를 `fork` 한다.
 2. 생성된 저장소에 `Github ID`로 폴더를 생성한다.
