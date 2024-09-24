@@ -154,6 +154,8 @@
 
 <br />
 
+---
+
 해당 README는 다음 레포지토리를 참고해서 제작하였습니다.
 
 - [알고리즘 및 코딩 테스트 문제 풀이 챌린지 100](https://github.com/ellynhan/challenge100-codingtest-study)
