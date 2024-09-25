@@ -87,5 +87,5 @@ int main(void)
 		}
 	}
 
-	printf("%.2f", stack[top]); //stack의 top 에 최종 계산 결과가 저장됨
+	printf("%.2f", stack[top]); //stack의 top 에 최종 계산 결과가 저장
 }
