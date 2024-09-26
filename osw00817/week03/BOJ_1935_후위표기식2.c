@@ -22,7 +22,7 @@ int main() {
 	for (int i = 0; i < strlen(data); i++) {
 		printf("%s의%d번째값: %c %d | %d \n", data, i, data[i], data[i], tmp);
 		if (65 <= data[i] && data[i] <= 90) {
-			++cnt;
+			++cnt;	
 			operands[++top] = nums[cnt];
 		}
 		else {
