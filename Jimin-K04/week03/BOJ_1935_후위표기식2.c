@@ -1,3 +1,4 @@
+//실패
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h> //알파벳인지 판단하는 isalpha() 함수 사용, 알파벳이 아닐 경우 0을 반환
