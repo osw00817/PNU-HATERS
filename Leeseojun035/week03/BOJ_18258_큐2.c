@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX_SIZE 500001 // 한자리 비워둘거임
+#define MAX_SIZE 2000001//한자리 비워둘거임
 
 int queue[MAX_SIZE];  
 int front = 0;        
@@ -19,32 +19,53 @@ void push(int value) {
 int pop() {
     if (isEmpty()) return -1; 
     int value = queue[front];
-    front = (front + 1) % MAX_SIZE; // 인덱스 순환
-    return value;
+    front = (front + 1) % MAX_SIZE;  // 인덱스 순환
+    return value; 
 }
 
 int size() {
-    return (rear - front + MAX_SIZE) % MAX_SIZE; // 큐의 크기를 반환하는 함수
+    return (rear - front + MAX_SIZE) % MAX_SIZE; 
+}
+
+int Front() {
+    if (isEmpty()) return -1; 
+    return queue[front]; 
+}
+
+int back() {
+    if (isEmpty()) return -1; 
+    return queue[(rear - 1 + MAX_SIZE) % MAX_SIZE]; 
 }
 
 int main() {
     int N;
     scanf("%d", &N);
 
-    // 1부터 N까지 큐에 넣기
-    for (int i = 1; i <= N; i++) {
-        push(i);
-    }
+    for (int i = 0; i < N; i++) {
+        char cmd[6];
+        scanf("%s", cmd);
 
-    // 큐에서 마지막 남은 요소 찾기
-    while (size() > 1) { // 큐의 크기가 1이 아닐 때까지 반복
-        pop(); // 가장 앞의 요소 제거
-        int n = pop(); // 다음 요소를 제거하고
-        push(n); // 그것을 큐의 뒤에 추가
+        if (strcmp(cmd, "push") == 0) {
+            int value;
+            scanf("%d", &value);
+            push(value);
+        }
+        else if (strcmp(cmd, "pop") == 0) {
+            printf("%d\n", pop()); 
+        }
+        else if (strcmp(cmd, "size") == 0) {
+            printf("%d\n", size());
+        }
+        else if (strcmp(cmd, "empty") == 0) {
+            printf("%d\n", isEmpty());
+        }
+        else if (strcmp(cmd, "front") == 0) {
+            printf("%d\n", Front());
+        }
+        else if (strcmp(cmd, "back") == 0) {
+            printf("%d\n", back());
+        }
     }
-
-    // 마지막 남은 요소 출력
-    printf("%d\n", queue[front]); // 큐의 앞에 남아 있는 요소 출력
 
     return 0;
 }
