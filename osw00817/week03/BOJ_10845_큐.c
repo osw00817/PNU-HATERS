@@ -3,6 +3,8 @@
 #include <string.h>
 #define SIZE 10001
 
+//구현 실패
+
 /*
 push X: 정수 X를 큐에 넣는 연산이다.
 pop: 큐에서 가장 앞에 있는 정수를 빼고, 그 수를 출력한다.
