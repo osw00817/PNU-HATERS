@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+#define MAX_SIZE 101 
+
+double stack[MAX_SIZE]; 
+int top = -1; 
+
+
+void push(double value) {
+    stack[++top] = value;
+}
+
+
+double pop() {
+    return stack[top--];
+}
+
+int main() {
+    int N;
+    char postfix[MAX_SIZE]; // 후위 표기식을 저장
+    double values[26]; // A~Z에 해당하는 값 저장
+
+    scanf("%d", &N); // 피연산자 개수 
+    scanf("%s", postfix); // 후위 표기식
+
+    // 피연산자 값 입력
+    for (int i = 0; i < N; i++) {
+        scanf("%lf", &values[i]);
+    }
+
+    int length = strlen(postfix); // 후위 표기식의 길이
+
+    
+    for (int i = 0; i < length; i++) {
+        if (postfix[i] != '*' && postfix[i] != '-' && postfix[i] != '/' && postfix[i] != '+') {
+            push(values[postfix[i] - 'A']);//아스키 코드로 index
+        }
+        else {
+            double b = pop();
+            double a = pop();
+            switch (postfix[i]) {
+            case '+':
+                push(a + b);
+                break;
+            case '-':
+                push(a - b);
+                break;
+            case '*':
+                push(a * b);
+                break;
+            case '/':
+                push(a / b);
+                break;
+            }
+        }
+    }
+
+  
+    printf("%.2lf\n", pop());
+
+    return 0;
+}
