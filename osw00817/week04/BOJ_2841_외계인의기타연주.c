@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// 6°³ÀÇ ÁÙ, P°³ÀÇ ÇÁ·¿
-// °¡Àå ³ôÀº ÇÁ·¿ÀÇ À½ÀÌ ¹ß»ıÇÏ´Ù
-// (1 ¡Â N ¡Â 500,000, 2 ¡Â P ¡Â 300,000)
+// 6ê°œì˜ ì¤„, Pê°œì˜ í”„ë ›
+// ê°€ì¥ ë†’ì€ í”„ë ›ì˜ ìŒì´ ë°œìƒí•˜ë‹¤
+// (1 â‰¤ N â‰¤ 500,000, 2 â‰¤ P â‰¤ 300,000)
 
 /*
-	±¸»ó
-	- ¶óÀÎº° top ¹è¿­
-	- ¶óÀÎº° fret 2Â÷¿ø ¹è¿­ ¸¸µé¾î¼­ stackÃ³·³ È°¿ëÇÏ±â
-	- while¹®À» ÅëÇØ¼­ Á¶°Ç¿¡ ¸ÂÃß¾î¼­ ¼ÕºÙÀÌ°í ¶¼±â
+	êµ¬ìƒ
+	- ë¼ì¸ë³„ top ë°°ì—´
+	- ë¼ì¸ë³„ fret 2ì°¨ì› ë°°ì—´ ë§Œë“¤ì–´ì„œ stackì²˜ëŸ¼ í™œìš©í•˜ê¸°
+	- whileë¬¸ì„ í†µí•´ì„œ ì¡°ê±´ì— ë§ì¶”ì–´ì„œ ì†ë¶™ì´ê³  ë–¼ê¸°
 */
 
 int main() {
@@ -18,22 +18,22 @@ int main() {
 	scanf("%d", &N);
 	scanf("%d", &P);
 	int top[6] = { -1 };
-	// °¢ ÁÙº° top ÃÊ±â°ª ÇÒ´ç
+	// ê° ì¤„ë³„ top ì´ˆê¸°ê°’ í• ë‹¹
 	int* fret[6];
 	for (int i = 0; i < 6; i++) {
 		fret[i] = (int*)malloc(sizeof(int));
 	}
-	// °¢ ÇÁ·¿º° stack ÇÒ´ç
+	// ê° í”„ë ›ë³„ stack í• ë‹¹
 	while (N > 0) {
 		N--;
 		int line, fretnum;
 		scanf("%d", &line);
 		scanf("%d", &fretnum);
 		line--;
-		//ÀÎµ¦½º·Î »ç¿ëÇÏ±â ½±°Ô -1 ÇØÁÖ±â
+		//ì¸ë±ìŠ¤ë¡œ ì‚¬ìš©í•˜ê¸° ì‰½ê²Œ -1 í•´ì£¼ê¸°
 		while (1) {
 			if (top[line] == -1) {
-				//½ºÅÃÀÌ ºñ¾îÀÖ´Ù¸é
+				//ìŠ¤íƒì´ ë¹„ì–´ìˆë‹¤ë©´
 				top[line]++;
 				fret[line] = (int*)realloc(fret[line], sizeof(int) * (top[line] + 1));
 				fret[line][top[line]] = fretnum;
@@ -41,9 +41,9 @@ int main() {
 				break;
 			}
 			else {
-				//½ºÅÃÀÌ ºñ¾îÀÖÁö ¾Ê´Ù¸é
+				//ìŠ¤íƒì´ ë¹„ì–´ìˆì§€ ì•Šë‹¤ë©´
 				if (fret[line][top[line]] < fretnum) {
-					// ³ôÀº ÇÁ·¿ÀÌ¸é ¼Õ ºÙÀÌ±â
+					// ë†’ì€ í”„ë ›ì´ë©´ ì† ë¶™ì´ê¸°
 					top[line]++;
 					fret[line] = (int*)realloc(fret[line], sizeof(int) * (top[line] + 1));
 					fret[line][top[line]] = fretnum;
@@ -52,11 +52,11 @@ int main() {
 
 				}
 				else if (fret[line][top[line]] == fretnum) {
-					//°°Àº ÇÁ·¿ÀÌ¸é Çàµ¿ x
+					//ê°™ì€ í”„ë ›ì´ë©´ í–‰ë™ x
 					break;
 				}
 				else {
-					//´õ ÀÛÀº ÇÁ·¿ÀÌ¸é ¼Õ¶¼±â
+					//ë” ì‘ì€ í”„ë ›ì´ë©´ ì†ë–¼ê¸°
 					top[line]--;
 					cnt++;
 				}
