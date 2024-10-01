@@ -10,7 +10,7 @@ int top = -1, stack[MAX]; //top : 스택의 top 값이 저장되어있는 인덱
 int main(void)
 {
 	char cmd[20], *num_X; //명령을 저장할 배열, push 에서 삽입할 수를 저장할 배열의 포인터 주소
-	int N, X; //명령 수
+	int N; //명령 수
 	scanf("%d", &N);
 	getchar(); //fgets 함수가 버퍼에 남아있는 개행문자를 받지 않게 개행문자 제거
 
@@ -23,7 +23,7 @@ int main(void)
 			if (!strcmp(cmd, "pop")) pop();
 			else {
 				num_X = cmd + 5; // 아래설명
-				push(atoi(num_X));
+				push(atoi(num_X)); //문자열을 정수로 형변환
 			}
 			break;
 
