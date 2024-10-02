@@ -2,9 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define SIZE 2000001
-
-//구현 실패
+#define SIZE 2000000
 
 typedef struct {
 	long data[SIZE];
@@ -30,34 +28,34 @@ int isFull(Queue* Q) {
 
 int enqueue(Queue* Q, int e) {
 	if (!isFull(Q)) {
-		Q->rear++;
+		Q->rear = (Q->rear + 1) % SIZE;
 		Q->data[Q->rear] = e;
 	}
 }
 
 int dequeue(Queue* Q) {
-	if (isEmpty(Q) == 0) {
+	if (isEmpty(Q)) {
 		return -1;
 	}
 	else {
-		Q->front++;
+		Q->front = (Q->front + 1) % SIZE;
 		return Q->data[Q->front];
 	}
 }
 
 int size(Queue* Q) {
-	return Q->rear - Q->front;
+	return (Q->rear > Q->front) ? Q->rear - Q->front : Q->front - Q->rear;
 }
 
 int front(Queue* Q) {
-	if (isEmpty(Q) == 0) {
+	if (isEmpty(Q)) {
 		return -1;
 	}
-	return Q->data[Q->front + 1];
+	return Q->data[(Q->front + 1) % SIZE];
 }
 
 int back(Queue* Q) {
-	if (isEmpty(Q) == 0) {
+	if (isEmpty(Q)) {
 		return -1;
 	}
 	return Q->data[Q->rear];
@@ -72,24 +70,24 @@ int main() {
 		loop--;
 		char command[20];
 		scanf("%s", command);
-		if (strcmp(command, "push")) {
+		if (!strcmp(command, "push")) {
 			int num;
 			scanf("%d", &num);
 			enqueue(&q, num);
 		}
-		else if (strcmp(command, "pop")) {
+		else if (!strcmp(command, "pop")) {
 			printf("%d\n", dequeue(&q));
 		}
-		else if (strcmp(command, "size")) {
+		else if (!strcmp(command, "size")) {
 			printf("%d\n", size(&q));
 		}
-		else if (strcmp(command, "empty")) {
+		else if (!strcmp(command, "empty")) {
 			printf("%d\n", isEmpty(&q));
 		}
-		else if (strcmp(command, "front")) {
+		else if (!strcmp(command, "front")) {
 			printf("%d\n", front(&q));
 		}
-		else if (strcmp(command, "back")) {
+		else if (!strcmp(command, "back")) {
 			printf("%d\n", back(&q));
 		}
 	}
