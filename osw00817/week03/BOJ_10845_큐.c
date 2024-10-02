@@ -1,9 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
-#define SIZE 10001
-
-//구현 실패
+#define SIZE 10000
 
 /*
 push X: 정수 X를 큐에 넣는 연산이다.
@@ -24,10 +22,14 @@ void init(Queue* Q) {
 	Q->front = Q->rear = -1;
 }
 int isEmpty(Queue* Q) {
-	return Q->front == Q->rear;
+	if (Q->front == Q->rear)
+		return 1;
+	return 0;
 }
 int isFull(Queue* Q) {
-	return Q->rear == SIZE - 1;
+	if (Q->rear == SIZE - 1)
+		return 1;
+	return 0;
 }
 void enqueue(Queue* Q, int e) {
 	if (!isFull(Q)) {
@@ -40,7 +42,29 @@ int dequeue(Queue* Q) {
 		Q->front++;
 		return Q->data[Q->front];
 	}
+	else {
+		return -1;
+	}
 }
+
+int front(Queue* Q) {
+	if (!isEmpty(Q)) {
+		return Q->data[Q->front + 1];
+	}
+	else {
+		return -1;
+	}
+}
+
+int back(Queue* Q) {
+	if (!isEmpty(Q)) {
+		return Q->data[Q->rear];
+	}
+	else {
+		return -1;
+	}
+}
+
 int main() {
 	int loop = 0;
 	scanf("%d", &loop);
@@ -50,50 +74,30 @@ int main() {
 
 	while (loop > 0) {
 		loop--;
-		char command[6];
+		char command[10];
 		scanf("%s", command);
-		if (strcmp(command, "push") == 0) {
+		if (!strcmp(command, "push")) {
 			//정수 X를 큐에 넣는 연산이다.
 			int num = 0;
 			scanf("%d", &num);
 			enqueue(&Queue, num);
 		}
-		else if (strcmp(command, "pop") == 0) {
-			//pop: 큐에서 가장 앞에 있는 정수를 빼고, 그 수를 출력한다. 
-			//만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
-			if (isEmpty(&Queue)) {
-				printf("%d\n", -1);
-			}
-			else {
-				printf("%d\n", dequeue(&Queue));
-			}
+		else if (!strcmp(command, "pop")) {
+			printf("%d\n", dequeue(&Queue));
 		}
-		else if (strcmp(command, "size") == 0) {
+		else if (!strcmp(command, "size")) {
 			printf("%d\n", Queue.rear - Queue.front);
 		}
-		else if (strcmp(command, "empty") == 0) {
-			if (isEmpty(&Queue)) {
-				printf("%d\n", 1);
-			}
-			else {
-				printf("%d\n", 0);
-			}
+		else if (!strcmp(command, "empty")) {
+			printf("%d\n", isEmpty(&Queue));
 			// 큐가 비어있으면 1, 아니면 0을 출력한다.
 		}
-		else if (strcmp(command, "front") == 0) {
-			if (isEmpty(&Queue)) {
-				printf("%d\n", -1);
-				break;
-			}
-			printf("%d\n", Queue.data[Queue.front + 1]);
+		else if (!strcmp(command, "front")) {
+			printf("%d\n", front(&Queue));
 			//큐의 가장 앞에 있는 정수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
 		}
-		else if (strcmp(command, "back") == 0) {
-			if (isEmpty(&Queue)) {
-				printf("%d\n", -1);
-				break;
-			}
-			printf("%d\n", Queue.data[Queue.rear]);
+		else if (!strcmp(command, "back")) {
+			printf("%d\n", back(&Queue));
 			//큐의 가장 뒤에 있는 정수를 출력한다. 만약 큐에 들어있는 정수가 없는 경우에는 -1을 출력한다.
 		}
 	}
