@@ -1,48 +1,49 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 1000
+
 typedef struct {
     int data[MAX];
     int front, rear, size;
-} Deque;
+} Queue;
 
-void initDeque(Deque* dq) {
-    dq->front = dq->rear = 0;
-    dq->size = 0;
+void initQueue(Queue* q) {
+    q->front = q->rear = 0;
+    q->size = 0;
 }
 
-void addrear(Deque* dq, int value) {
-    dq->data[dq->rear] = value;
-    dq->rear = (dq->rear + 1) % MAX;
-    dq->size++;
+void add(Queue* q, int value) {
+    q->data[q->rear] = value;
+    q->rear = (q->rear + 1) % MAX;
+    q->size++;
 }
 
-int delfront(Deque* dq) {
-    int value = dq->data[dq->front];
-    dq->front = (dq->front + 1) % MAX;
-    dq->size--;
+int del(Queue* q) {
+    int value = q->data[q->front];
+    q->front = (q->front + 1) % MAX;
+    q->size--;
     return value;
 }
 
-void left(Deque* dq) {
-    int temp = dq->data[dq->front];
-    for (int i = 0; i < dq->size - 1; i++) {
-        dq->data[(dq->front + i) % MAX] = dq->data[(dq->front + i + 1) % MAX];
+void left(Queue* q) {
+    int temp = q->data[q->front];
+    for (int i = 0; i < q->size - 1; i++) {
+        q->data[(q->front + i) % MAX] = q->data[(q->front + i + 1) % MAX];
     }
-    dq->data[(dq->front + dq->size - 1) % MAX] = temp;
+    q->data[(q->front + q->size - 1) % MAX] = temp;
 }
 
-void right(Deque* dq) {
-    int temp = dq->data[(dq->front + dq->size - 1) % MAX];
-    for (int i = dq->size - 1; i > 0; i--) {
-        dq->data[(dq->front + i) % MAX] = dq->data[(dq->front + i - 1) % MAX];
+void right(Queue* q) {
+    int temp = q->data[(q->front + q->size - 1) % MAX];
+    for (int i = q->size - 1; i > 0; i--) {
+        q->data[(q->front + i) % MAX] = q->data[(q->front + i - 1) % MAX];
     }
-    dq->data[dq->front] = temp;
+    q->data[q->front] = temp;
 }
 
-int find(Deque* dq, int target) {
-    for (int i = 0; i < dq->size; i++) {
-        if (dq->data[(dq->front + i) % MAX] == target) {
+int find(Queue* q, int target) {
+    for (int i = 0; i < q->size; i++) {
+        if (q->data[(q->front + i) % MAX] == target) {
             return i;
         }
     }
@@ -53,10 +54,10 @@ int main() {
     int n, m;
     scanf("%d %d", &n, &m);
 
-    Deque dq;
-    initDeque(&dq);
+    Queue q;
+    initQueue(&q);
     for (int i = 1; i <= n; i++) {
-        addrear(&dq, i);
+        add(&q, i);
     }
 
     int cnt = 0;
@@ -64,22 +65,22 @@ int main() {
     for (int i = 0; i < m; i++) {
         int target;
         scanf("%d", &target);
-        int index = find(&dq, target);
+        int index = find(&q, target);
         // 왼쪽과 오른쪽중 뭐가 빠른지
-        if (index <= dq.size / 2) {
+        if (index <= q.size / 2) {
             // 왼쪽 회전
             for (int j = 0; j < index; j++) {
-                left(&dq);
+                left(&q);
                 cnt++;
             }
         }
         else {//오른쪽 회전
-            for (int j = 0; j < dq.size - index; j++) {
-                right(&dq);
+            for (int j = 0; j < q.size - index; j++) {
+                right(&q);
                 cnt++;
             }
         }
-        delfront(&dq);
+        del(&q);
     }
     printf("%d", cnt);
     return 0;
