@@ -6,7 +6,7 @@ int N;
 int bSearch(int* ar, int first, int last, int target) {
 	int mid;
 	if (first > last)
-		return -1; // Å½»ö ½ÇÆÐ
+		return -1; // Ã…Â½Â»Ã¶ Â½Ã‡Ã†Ã
 
 	mid = (first + last) / 2;
 	//printf("MID: %d\n", mid);
@@ -32,10 +32,8 @@ int main() {
 	int* niga_list = (int*)malloc(sizeof(int) * N);
 	int loop = N;
 	while (loop--) {
-		int tmp;
-		scanf("%d", &tmp);
-		niga_list[loop] = tmp;
-		if (tmp > max) max = tmp;
+		scanf("%d", &niga_list[loop]);
+		if (niga_list[loop] > max) max = niga_list[loop];
 	}
 	int result = bSearch(niga_list, 0, max - 1, M);
 	printf("%d", result);
