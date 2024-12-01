@@ -51,7 +51,7 @@ int main() {
             printf("%s\n", names[idx]);
         }
         else {
-            printf("%d\n", search(poket, N, query));
+            printf("%d\n", binary_search(poket, N, query));
         }
     }
     for (int i = 1; i <= N; i++) {
