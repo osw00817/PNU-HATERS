@@ -4,7 +4,16 @@
 typedef struct {
 	int age;
 	char name[101];
+	int idx;
 }JUDGE;
+//qsort 함수 사용하기 위한 비교함수, 구조체 비교, 나이가 같을경우 인덱스 순서를 반환하게 수정함(예은이 코드 참고)
+int compare(const void* a, const void* b) {
+	JUDGE* j1 = (JUDGE*)a;
+	JUDGE* j2 = (JUDGE*)b;
+
+	if (j1->age == j2->age) return j1->idx - j2->idx;
+	else return j1->age - j2->age;
+}
 
 int main(void)
 {
@@ -13,23 +22,12 @@ int main(void)
 
 	JUDGE* judges = (JUDGE*)malloc(sizeof(JUDGE) * N);
 
-	//한 요소를 입력받을때마다 정렬하면 앞의 요소들은 모두 정렬된 상태가 됨.
 	for (int i = 0; i < N; i++) {
-		scanf("%d", &Age);
-
-		idx = i - 1; // 인덱스를 하나씩 줄여가기 (현재 삽입할 수보다 작거나 같아질때까지)
-		while (idx >= 0 && judges[idx].age > Age) { //idx >= 0 조건을 먼저 검사해야함(segmentation fault 방지)
-			idx--;
-		}
-		insert_idx = idx + 1; //입력받은 수를 삽입할 인덱스를 저장
-
-		for (int j = i; j > insert_idx; j--) {
-			judges[j] = judges[j - 1]; // 구조체의 모든 멤버(age, name) 복사됨, 삽입할 인덱스부터 끝까지 요소를 뒤로 미루기
-		}
-		judges[insert_idx].age = Age; //삽입할 곳에 나이 저장
-		scanf("%s", &judges[insert_idx].name); //이후 이름 입력받고 해당 인덱스에 저장
+		scanf("%d %s", &judges[i].age, judges[i].name);
+		judges[i].idx = i;
 	}
 
+	qsort(judges, N, sizeof(JUDGE), compare);
 	for (int i = 0; i < N; i++) {
 		printf("%d %s\n", judges[i].age, judges[i].name);
 	}
